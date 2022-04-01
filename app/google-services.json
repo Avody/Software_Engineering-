@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "452923427431",
+    "project_id": "shareytrips-dadb7",
+    "storage_bucket": "shareytrips-dadb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452923427431:android:19b6389a61968a5a9ea2c2",
+        "android_client_info": {
+          "package_name": "com.example.shareytrips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "452923427431-i0g5b09nsa3cpe9pb7r7sidm3q0djld2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA15V70z5_ZmaF77Qzt2EqJz38pSYpD08Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "452923427431-i0g5b09nsa3cpe9pb7r7sidm3q0djld2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
