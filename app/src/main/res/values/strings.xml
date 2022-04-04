@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ShareYTrips</string>
+    <string name="dialog_title">Interests</string>
+
+    <string-array name="interests">
+        <item>Clubing</item>
+        <item>Streetfood</item>
+        <item>Fine dining</item>
+        <item>Wine</item>
+        <item>Beer</item>
+        <item>Sightseeing</item>
+        <item>Museums</item>
+        <item>Art</item>
+        <item>History</item>
+        <item>Architecture</item>
+        <item>Nature</item>
+        <item>Beach</item>
+        <item>Museums</item>
+        <item>Coffee shops</item>
+    </string-array>
 </resources>

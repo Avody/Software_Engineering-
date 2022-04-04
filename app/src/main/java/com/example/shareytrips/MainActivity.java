@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.*;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView verifyMsg;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         reset_alert = new AlertDialog.Builder(this);
         inflater = this.getLayoutInflater();
+
 
         //if user is not verified make visible the verify button
         if (!auth.getCurrentUser().isEmailVerified()) {
@@ -122,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                             user.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
+
                                     Toast.makeText(MainActivity.this,"Account Deleted",Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(),Login.class));
                                     finish();
