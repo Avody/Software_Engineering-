@@ -17,10 +17,8 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -143,12 +141,14 @@ public class Register extends AppCompatActivity {
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 String email = mEmail.getText().toString().trim();
-                 String password = mPassword.getText().toString().trim();
-                 String fullName = mFullName.getText().toString();
+
+                 String fullname = mFullName.getText().toString();
+                 String email = mEmail.getText().toString();
+                 String password    = mPassword.getText().toString();
                  String confPassword    = mConfPassword.getText().toString();
 
-                if(fullName.isEmpty()){
+
+                if(fullname.isEmpty()){
                     mFullName.setError("Full name is Required.");
                     return;
                 }
@@ -182,11 +182,12 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         //create users data tree
+                        User user = new User(mFullName.getText().toString(),mEmail.getText().toString().trim(),mPassword.getText().toString().trim(),interestsSelected.getText().toString(),fAuth.getCurrentUser().getUid());
                         HashMap<String,Object> map = new HashMap<>();
-                        map.put("fullname",fullName);
-                        map.put("email",email);
-                        map.put("id",fAuth.getCurrentUser().getUid());
-                        map.put("interests",interestsSelected.getText().toString());
+                        map.put("fullname",user.getFullname());
+                        map.put("email",user.getEmail());
+                        map.put("id",user.getId());
+                        map.put("interests",user.getInterests());
                         mRootRef.child("Users").child(fAuth.getCurrentUser().getUid()).setValue(map);
                         //send user to main page
                         pd.dismiss();
