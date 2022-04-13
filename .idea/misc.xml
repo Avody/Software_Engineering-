@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/activity_login.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/activity_main.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/activity_post.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/activity_register.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/activity_reset_password.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/fragment_add_experience_fragmant.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/fragment_home_fragmant.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/fragment_profile.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/fragment_search_fragmant.xml" value="0.33" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/layout/reset_password.xml" value="0.17239583333333333" />
+        <entry key="..\:/Users/Avody/AndroidStudioProjects/Software_Engineering-/app/src/main/res/menu/main_menu.xml" value="0.17239583333333333" />
         <entry key="..\:/Users/aggel/AndroidStudioProjects/ShareYTrips/app/src/main/res/font/aclonica.xml" value="0.14907407407407408" />
         <entry key="..\:/Users/aggel/AndroidStudioProjects/ShareYTrips/app/src/main/res/layout/activity_reset_password.xml" value="0.264" />
         <entry key="..\:/Users/aggel/AndroidStudioProjects/ShareYTrips/app/src/main/res/layout/reset_password.xml" value="0.16" />
