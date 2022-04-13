@@ -3,6 +3,7 @@ package com.example.shareytrips;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,9 +18,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shareytrips.Fragments.HomeFragmant;
+import com.example.shareytrips.Fragments.ProfileFragment;
+import com.example.shareytrips.Fragments.SearchFragmant;
 import com.google.android.gms.common.internal.Objects;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.*;
 
@@ -27,12 +32,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView verifyMsg;
-    private Button verifyEmailBtn;
     private FirebaseAuth auth;
 
     private AlertDialog.Builder reset_alert;
     private LayoutInflater inflater;
+
+    //for the bottom navigation bar
+    private BottomNavigationView bottomNavigationView;
+    private Fragment selectorFragment;
 
 
     @Override
@@ -41,42 +48,54 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toast.makeText(MainActivity.this, "Firebase connected", Toast.LENGTH_LONG).show();
         auth = FirebaseAuth.getInstance();
-        verifyEmailBtn = findViewById(R.id.verifyEmailBtn);
-        verifyMsg = findViewById(R.id.verifyMsg);
+
 
         reset_alert = new AlertDialog.Builder(this);
         inflater = this.getLayoutInflater();
 
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        //if user is not verified make visible the verify button
-        if (!auth.getCurrentUser().isEmailVerified()) {
-            verifyEmailBtn.setVisibility(View.VISIBLE);
-            verifyMsg.setVisibility(View.VISIBLE);
-        }
-        //click handler for verifing email
-        verifyEmailBtn.setOnClickListener(new View.OnClickListener() {
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                //send verification email
-                auth.getCurrentUser().sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(MainActivity.this, "Verification Email Sent", Toast.LENGTH_SHORT).show();
-                        verifyEmailBtn.setVisibility(View.GONE);
-                        verifyMsg.setVisibility(View.GONE);
-                    }
-                });
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()){
+                    case R.id.nav_home :
+                        selectorFragment = new HomeFragmant();
+                        break;
+
+                    case R.id.nav_search :
+                        selectorFragment = new SearchFragmant();
+                        break;
+
+                    case R.id.nav_add :
+                        selectorFragment = null;
+                        startActivity(new Intent(MainActivity.this , PostActivity.class));
+                        break;
+
+                    case R.id.nav_profile :
+                        selectorFragment = new ProfileFragment();
+                        break;
+                }
+                if (selectorFragment != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container , selectorFragment).commit();
+                }
+
+                return  true;
+
             }
         });
+
+
     }
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu){
-            MenuInflater inflater = getMenuInflater();
-            inflater.inflate(R.menu.option_menu,menu);
-            return super.onCreateOptionsMenu(menu);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.option_menu,menu);
+        return super.onCreateOptionsMenu(menu);
 
-        }
-
+    }
+    //profile menu
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
