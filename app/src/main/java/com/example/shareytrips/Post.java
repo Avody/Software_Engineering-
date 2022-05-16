@@ -9,9 +9,9 @@ public class Post {
     private String date2;
     private String bigDesc;
     private int rating;
-    private String user_id;
+    private String username;
 
-    public Post(String city, String company_choice, String cost, String smallDesc, String date1, String date2, String bigDesc, int rating, String user_id){
+    public Post(String city, String company_choice, String cost, String smallDesc, String date1, String date2, String bigDesc, int rating, String username){
         this.city = city;
         this.company_choice = company_choice;
         this.cost = cost;
@@ -20,7 +20,7 @@ public class Post {
         this.date2 = date2;
         this.bigDesc = bigDesc;
         this.rating = rating;
-        this.user_id = user_id;
+        this.username = username;
 
 
     }
@@ -82,12 +82,12 @@ public class Post {
         this.rating = rating;
     }
 
-    public String getUser_id() {
-        return user_id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getBigDesc() {

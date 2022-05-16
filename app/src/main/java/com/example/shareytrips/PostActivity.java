@@ -151,7 +151,7 @@ public class PostActivity extends AppCompatActivity {
                                 mDate2.getText().toString(),
                                 bigDesc.getText().toString(),
                                 rating,
-                                FirebaseAuth.getInstance().getCurrentUser().getUid()
+                                FirebaseAuth.getInstance().getCurrentUser().getDisplayName()
                         );
                         map.put("city" , post1.getCity());
                         map.put("travel companions" , post1.getCompany_choice());
@@ -161,7 +161,7 @@ public class PostActivity extends AppCompatActivity {
                         map.put("Leaving date" , post1.getDate2());
                         map.put("Long description" , post1.getBigDesc());
                         map.put("rating" , post1.getRating());
-                        map.put("publisher" , post1.getUser_id());
+                        map.put("publisher" , post1.getUsername());
                         databaseReference.child(postId).setValue(map);
                         Toast.makeText(PostActivity.this, "post uploaded", Toast.LENGTH_SHORT).show();
                     }
