@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchFragmant extends Fragment {
+public class SearchFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView recyclerViewTags;
@@ -43,7 +43,7 @@ public class SearchFragmant extends Fragment {
 
         mPosts = new ArrayList<>();
         mSearchBar = view.findViewById(R.id.search_bar);
-        postAdapter = new PostAdapter(getContext() , mPosts , true);
+        postAdapter = new PostAdapter(getContext() , (ArrayList<Post>) mPosts, true);
         recyclerView.setAdapter(postAdapter);
         recyclerViewTags = view.findViewById(R.id.recycler_view_tags);
         recyclerViewTags.setHasFixedSize(true);

@@ -13,22 +13,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.shareytrips.Fragments.HomeFragmant;
 import com.example.shareytrips.Fragments.ProfileFragment;
-import com.example.shareytrips.Fragments.SearchFragmant;
-import com.google.android.gms.common.internal.Objects;
+import com.example.shareytrips.Fragments.SearchFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.*;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,11 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()){
                     case R.id.nav_home :
-                        selectorFragment = new HomeFragmant();
+                        selectorFragment = null;
+                        startActivity(new Intent(MainActivity.this , Home.class));
                         break;
 
                     case R.id.nav_search :
-                        selectorFragment = new SearchFragmant();
+                        selectorFragment = new SearchFragment();
                         break;
 
                     case R.id.nav_add :
