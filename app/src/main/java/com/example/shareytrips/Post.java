@@ -24,6 +24,9 @@ public class Post {
 
 
     }
+    public Post(){
+
+    }
 
 
     public String getCity() {

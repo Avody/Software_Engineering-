@@ -24,9 +24,7 @@ public class PostAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private Context mContext;
     private ArrayList<Post> mPosts;
     private Activity mActivity;
-    private boolean isFragment;
 
-    private FirebaseUser firebaseUser;
 
     public PostAdapter(Context mContext, ArrayList<Post> mPosts, Activity mActivity) {
         this.mContext = mContext;
@@ -34,17 +32,11 @@ public class PostAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> 
         this.mActivity = mActivity;
     }
 
-    public PostAdapter(Context mContext, ArrayList<Post> mPosts, Boolean isFragment) {
-        this.mContext = mContext;
-        this.mPosts = mPosts;
-        this.isFragment= isFragment;
-    }
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.post, parent, false);
-        return new ViewHolder(view, viewType);
+        return new ViewHolder(view);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -53,7 +45,7 @@ public class PostAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> 
         public Button mCheckMore;
         private CardView cardView;
 
-        public ViewHolder(View itemView, int viewType) {
+        public ViewHolder(View itemView) {
             super(itemView);
             // Find all views ids
             cardView = (CardView) itemView.findViewById(R.id.card_view_top);
@@ -61,7 +53,7 @@ public class PostAdapter extends  RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mUsername = itemView.findViewById(R.id.username);
             mShort_desc = itemView.findViewById(R.id.shortDescription);
             mRatingBar = itemView.findViewById(R.id.rating_stars);
-            mCheckMore = itemView.findViewById(R.id.button1);
+            mCheckMore = itemView.findViewById(R.id.check_more);
         }
     }
 

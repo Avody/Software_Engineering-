@@ -45,8 +45,8 @@ public class Home  extends AppCompatActivity{
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 postsList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    Post imagemodel = dataSnapshot.getValue(Post.class);
-                    postsList.add(imagemodel);
+                    Post post = dataSnapshot.getValue(Post.class);
+                    postsList.add(post);
                 }
                 postAdapter = new PostAdapter(mContext, (ArrayList<Post>) postsList,mActivity);
                 recyclerView.setAdapter(postAdapter);
