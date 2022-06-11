@@ -32,7 +32,6 @@ import java.util.List;
 public class SearchFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private RecyclerView recyclerViewTags;
     private AutoCompleteTextView mSearchBar;
 
     private List<Post> mPosts;

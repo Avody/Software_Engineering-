@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import com.example.shareytrips.R;
 import com.example.shareytrips.Register;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -28,10 +31,14 @@ public class ProfileFragment extends Fragment {
     private boolean[] checkedItems;
     private ArrayList<Integer> UserInterests = new ArrayList<>();
 
+    private DatabaseReference ref;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ref = FirebaseDatabase.getInstance().getReference();
 
         //for interests checkbox items
         interestsBtn = (Button) getView().findViewById(R.id.updateInterests);
@@ -99,6 +106,8 @@ public class ProfileFragment extends Fragment {
                 mDialog.show();
             }
         });
+
+        ref.child("Posts").child(FirebaseAuth.getInstance().getCurrentUser().getProviderId()).child("interests").setValue(interestsSelected.getText().toString());
 
 
         // Inflate the layout for this fragment
