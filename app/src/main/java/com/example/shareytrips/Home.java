@@ -39,7 +39,7 @@ public class Home  extends AppCompatActivity{
         recyclerView.setNestedScrollingEnabled(false);
         postsList = new ArrayList<>();
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Images");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Posts");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
